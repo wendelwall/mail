@@ -1,8 +1,7 @@
-# mail
+# kafka-mail
 调用微服需添加如下配置：
 
-XXXX: 
-  # kafka
+XXXX:
   kafka:
     bootstrap-servers: localhost:9092
     zookeeper-servers: localhost:2181
