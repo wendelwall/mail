@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: gin-mail
+  profiles:
+    active: dev
+
+---
+spring.profiles: test,prod,staging
+spring.cloud.config.uri: http://10.174.131.165:8899

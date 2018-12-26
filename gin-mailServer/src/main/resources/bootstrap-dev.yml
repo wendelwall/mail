@@ -1,0 +1,62 @@
+# Server
+server:
+  port: 8190
+  context-path: /
+  tomcat:
+    uri-encoding: utf-8
+    background-processor-delay: 30
+    max-threads: 100
+  session:
+    timeout: 1200
+
+spring:
+  session.store-type: none
+  mail:
+    host: smtp.qq.com
+    username: 774182819@qq.com
+    password: ngzizsjaqbbobcda
+#    prefix: classpath:/mailtemplates/
+#    template: index.html
+    nick: 班步服务团队
+  data:
+    mongodb:
+      host: 139.196.58.18
+      port: 27017
+      database: mail
+  boot:
+    admin:
+      client:
+        service-base-url: http://127.0.0.1:31112
+#      url: http://127.0.0.1:31112
+
+management:
+#  port: 56992
+  security:
+    enabled: false
+
+feign:
+  hystrix:
+    enabled: true
+
+# LOGGING
+logging:
+  level:
+    root: info
+
+# kafak
+banbu:
+  kafka:
+    bootstrap-servers: localhost:9092
+    zookeeper-servers: localhost:2181
+    email.topic: banbu-mail
+    email.group-id: gp-banbu-v4
+
+# eurker
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}:${random.value}
+  client:
+    service-url:
+      defaultZone: http://user:password@localhost:8761/eureka/
+    enabled: false
